@@ -1,14 +1,14 @@
-import Calculator from './components/Calculator';
+import BMICalculator from './components/BMICalculator';
 import Footer from './components/Footer';
 
 const App = () => {
   return (
     <div>
-      <Calculator />
-      <Calculator />
+      <BMICalculator />
+      <BMICalculator />
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
