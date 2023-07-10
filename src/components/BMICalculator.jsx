@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import '../App.css'
-import logo from '../logo.svg';
+import logo from '../logo.png';
 
 import Button from './Button';
+
+// Gonna add range slider later
 
 const BMICalculator = (e) => {
     
@@ -36,7 +38,7 @@ const BMICalculator = (e) => {
 
     return (
     <form onSubmit={calcBmi}>
-    <div className="App-header gap-3">
+    <div className="Component-center gap-3">
         <img src={logo} className="App-logo " alt="logo" />
 
         <h1>BMI Calculator</h1>
