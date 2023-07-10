@@ -1,6 +1,7 @@
 import BMICalculator from './components/BMICalculator';
 import Footer from './components/Footer';
 import Calculator from './components/Calculator';
+import Counter from "./components/Counter";
 
 // Add calculators for:
 // Savings Calculator: 40/30/30
@@ -9,6 +10,7 @@ import Calculator from './components/Calculator';
 const App = () => {
   return (
     <div>
+      <Counter />
       <BMICalculator />
       <Calculator />
       <Footer />
