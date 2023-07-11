@@ -1,6 +1,10 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect, useState } from 'react'
+
+import axios from 'axios'
 
 import '../App.css'
+
+// add bigger counterValue when bigger number later
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -29,31 +33,47 @@ export default function Counter () {
     }
     return color;
   };
-
   const resetColor = (color) => {
     dispatch ({ type: "CHANGE_VALUE_COLOR", payload: color })
   }
-
   const increaseValueColor = () => {
     const newValueColor = getRandomColor()
     dispatch({ type: "INCREMENT"})
     dispatch({ type:'CHANGE_VALUE_COLOR', payload: newValueColor})
   }
-
   const decreaseValueColor = () => {
     const newValueColor = getRandomColor()
     dispatch({ type: "DECREASE"})
     dispatch({ type:'CHANGE_VALUE_COLOR', payload: newValueColor})
   }
-
   const resetValueColor = () => {
     dispatch( { type: "RESET"})
     resetColor('white');
   }
 
+  const [hasError, setHasError] = useState(false);
+
+  const [data, setData] = useState('')
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://animechan.xyz/api/random')
+        setData(response.data.quote)
+      } catch (error) {
+      console.error(error)
+      setHasError(true)
+    }
+  }
+  
+    fetchData()
+  }, [])
+  
+
   return (
   <div className='Component-center gap-5'>
       <div className='counter-title mb-5 text-4xl'>&#x1F9EE; Counter &#x1F9EE;</div>
+      {hasError ? null : <div className='text-center text-xl mx-10 md:mx-20'> <h1 className='m-5 text-3xl'>Random Quote</h1> "{data}" </div> } 
       <div className='counter-value text-7xl' style={{color: state.valueColor}}>{state.counterValue}</div>
       <div className='flex flex-row gap-0'>
       <button onClick={decreaseValueColor}> Decrease <br /> &#x25C0;</button>
