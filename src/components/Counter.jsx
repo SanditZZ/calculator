@@ -1,4 +1,5 @@
 import React, { useReducer, useEffect, useState } from 'react'
+import { Tooltip } from 'react-tooltip'
 
 import axios from 'axios'
 
@@ -72,14 +73,17 @@ export default function Counter () {
 
   return (
   <div className='Component-center gap-5'>
-      <div className='counter-title mb-5 text-4xl'>&#x1F9EE; Counter &#x1F9EE;</div>
-      {hasError ? null : <div className='text-center text-xl mx-10 md:mx-20'> <h1 className='m-5 text-3xl'>Random Quote</h1> "{data}" </div> } 
+      <div data-tooltip-id="counter-title-tooltip" data-tooltip-html="This counter app was created <br/> using useState, useReducer, useEffect (for the random quote)."
+      className='counter-title mb-0 text-4xl'> &#x1F9EE; Counter &#x1F9EE;</div>
+      {hasError ? null : <div className='text-center text-lg mx-10 md:mx-20'> <h1 className='m-5 text-2xl'>Random Quote</h1> "{data}" </div> } 
       <div className='counter-value text-7xl' style={{color: state.valueColor}}>{state.counterValue}</div>
       <div className='flex flex-row gap-0'>
       <button onClick={decreaseValueColor}> Decrease <br /> &#x25C0;</button>
       <button onClick={resetValueColor}>Reset<br /> &#x267B;</button>
       <button onClick={increaseValueColor}>Increase <br /> &#x25B6; </button>
       </div>
+
+      <Tooltip id="counter-title-tooltip" place="top" className='counter-title-tooltip'/>
   </div>
 )
 }
