@@ -1,7 +1,5 @@
-import React, { useReducer, useEffect, useState } from 'react'
+import React, { useReducer } from 'react'
 import { Tooltip } from 'react-tooltip'
-
-import axios from 'axios'
 
 import '../App.css'
 
@@ -50,32 +48,12 @@ export default function Counter () {
   const resetValueColor = () => {
     dispatch( { type: "RESET"})
     resetColor('white');
-  }
-
-  const [hasError, setHasError] = useState(false);
-
-  const [data, setData] = useState('')
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://animechan.xyz/api/random')
-        setData(response.data.quote)
-      } catch (error) {
-      console.error(error)
-      setHasError(true)
-    }
-  }
-  
-    fetchData()
-  }, [])
-  
+  }  
 
   return (
   <div className='Component-center gap-5'>
       <div data-tooltip-id="counter-title-tooltip" data-tooltip-html="This counter app was created <br/> using useState, useReducer, useEffect (for the random quote) hooks."
       className='counter-title mb-0 text-4xl'> &#x1F9EE; Counter &#x1F9EE;</div>
-      {hasError ? null : <div className='text-center text-lg mx-10 md:mx-20'> <h1 className='m-5 text-2xl'>Random Quote</h1> "{data}" </div> } 
       <div className='counter-value text-7xl' style={{color: state.valueColor}}>{state.counterValue}</div>
       <div className='flex flex-row gap-0'>
       <button onClick={decreaseValueColor}> Decrease <br /> &#x25C0;</button>
