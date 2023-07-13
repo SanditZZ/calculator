@@ -39,7 +39,7 @@ const BMICalculator = (e) => {
     <form onSubmit={calcBmi}>
     <div className="Component-center gap-3">
     
-        <h1 data-tooltip-id="counter-title-tooltip" data-tooltip-html="This BMI calculator app was created using the useState hook." className='text-[2rem] md:text-[3rem]'>&#128170; BMI Calculator &#128170;</h1>
+        <h1 data-tooltip-id="counter-title-tooltip" data-tooltip-html="This BMI calculator app was created <br/> using the useState hook." className='text-[2rem] md:text-[3rem]'>&#128170; BMI Calculator &#128170;</h1>
 
         <label>Height (cm)</label>
         <input value={height} onChange={(e) => setHeight(e.target.value)} className='block bg-white text-black border border-slate-300 rounded-md py-2 px-5 shadow-sm focus:outline-none focus:border-cyan-500 focus:ring-cyan-500 focus:ring-1 sm:text-sm' />

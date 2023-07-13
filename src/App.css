@@ -4,6 +4,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
 
+/* variables */
+:root {
+  --fs-tooltip: 1rem;
+}
+
 *::before,
 *::after {
   box-sizing: border-box;
@@ -57,7 +62,7 @@ body {
 
 #counter-title-tooltip {
   text-align: center;
-  font-size: .8rem;
+  font-size: var(--fs-tooltip);
 }
 
 .App-link {
@@ -90,8 +95,10 @@ button {
   }
 
   #counter-title-tooltip {
+    padding: 20px 50px;
+    height: max-content;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: var(--fs-tooltip);
     margin: 0 10px;
   }
 

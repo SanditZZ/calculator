@@ -52,7 +52,7 @@ export default function Counter () {
 
   return (
   <div className='Component-center gap-5'>
-      <div data-tooltip-id="counter-title-tooltip" data-tooltip-html="This counter app was created <br/> using useState, useReducer, useEffect (for the random quote) hooks."
+      <div data-tooltip-id="counter-title-tooltip" data-tooltip-html="This counter app was created using <br/> the useState, useReducer, useEffect <br/>(for the random quote) hooks."
       className='counter-title mb-0 text-[2rem] md:text-[3rem]'> &#x1F9EE; Counter &#x1F9EE;</div>
       <div className='counter-value text-[10rem]' style={{color: state.valueColor}}>{state.counterValue}</div>
       <div className='flex flex-row gap-0'>
