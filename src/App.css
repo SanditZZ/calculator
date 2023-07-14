@@ -63,6 +63,7 @@ body {
 #counter-title-tooltip {
   text-align: center;
   font-size: var(--fs-tooltip);
+  overflow: hidden;
 }
 
 .App-link {
